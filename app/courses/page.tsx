@@ -140,7 +140,7 @@ const Courses = () => {
 	);
 };
 
-const PlayCircleIcon = ({ className }) => (
+const PlayCircleIcon = ({ className }: { className?: string }) => (
 	<svg
 		className={`w-5 h-5 ${className}`}
 		fill="none"
