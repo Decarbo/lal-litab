@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ShoppingCart, User } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -30,15 +31,13 @@ const Navbar = () => {
 					{/* Logo Section */}
 					<Link href="/">
 						<div className="flex-shrink-0 flex items-center gap-2">
-							<div className="w-10 h-10 bg-[#B22222] rounded-lg flex items-center justify-center shadow-md">
-								<span className="text-white font-bold text-xl">LK</span>
-							</div>
-							<div className="flex flex-col">
-								<span className={`font-bold text-xl leading-none ${scrolled ? 'text-gray-900' : 'text-gray-800'}`}>
-									LAL <span className="text-[#B22222]">KITAB</span>
-								</span>
-								<span className="text-[10px] uppercase tracking-widest text-gray-500 font-medium">Guru Kunwar Ji</span>
-							</div>
+							<Image
+								src="/logolap.svg"
+								alt="Lal Kitab with Guru Kunwar Ji"
+								width={150}
+								height={40}
+								className=""
+							/>
 						</div>
 					</Link>
 
@@ -71,6 +70,7 @@ const Navbar = () => {
 					</div>
 
 					{/* Mobile Menu Button */}
+
 					<div className="md:hidden flex items-center">
 						<button
 							onClick={() => setIsOpen(!isOpen)}
@@ -84,7 +84,13 @@ const Navbar = () => {
 			{/* Mobile Sidebar */}
 			<div className={`fixed inset-y-0 right-0 w-64 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-[60] md:hidden ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
 				<div className="p-6 flex flex-col h-full">
-					<div className="flex justify-end mb-8">
+					<div className="flex justify-between mb-8">
+						<Image
+							src="/copy.svg"
+							alt="Lal Kitab with Guru Kunwar Ji"
+							width={20}
+							height={30}
+						/>
 						<button
 							onClick={() => setIsOpen(false)}
 							className="text-gray-500">
