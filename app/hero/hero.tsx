@@ -1,8 +1,17 @@
 'use client';
 import React, { useState } from 'react';
-import { Star, ArrowRight, CheckCircle2, Loader2, Sparkles, Users, Calendar } from 'lucide-react';
+import { Star, ArrowRight, CheckCircle2, Loader2, Sparkles, Users, Calendar, Book, Compass } from 'lucide-react';
 import Image from 'next/image';
-
+// 2. Background Geometry (Simplified & Standardized)
+const BackgroundGeometry = () => (
+	<div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+		{/* Grid Pattern similar to Hero */}
+		<div
+			className="absolute inset-0 z-0 opacity-[0.03]"
+			style={{ backgroundImage: `linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)`, backgroundSize: '40px 40px' }}
+		/>
+	</div>
+);
 const Hero = () => {
 	const WEB_APP_URL = process.env.NEXT_PUBLIC_WEB_APP_URL;
 	const [isSubmitting, setIsSubmitting] = useState(false);
@@ -36,6 +45,7 @@ const Hero = () => {
 
 	return (
 		<section className="relative min-h-screen bg-[#FDFCFB] overflow-hidden py-8 selection:bg-red-100 font-sans">
+			<BackgroundGeometry />
 			<div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8 pt-10 lg:pt-20 pb-16">
 				<div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
 					{/* LEFT COLUMN: BRAND & VIDEO */}
@@ -99,7 +109,7 @@ const Hero = () => {
 					</div>
 
 					{/* RIGHT COLUMN: LEAD FORM */}
-					<div className="lg:col-span-5 space-y-6 lg:space-y-8 lg:mt-12 animate-[blurReveal_1s_ease-out_0.3s_both]">
+					<div className="lg:col-span-5 space-y-6 lg:space-y-8 lg:mt-16 animate-[blurReveal_1s_ease-out_0.3s_both]">
 						<div className="space-y-2 lg:space-y-4 text-center lg:text-left pt-4 lg:pt-0">
 							<h2 className="text-xl lg:text-3xl font-medium text-gray-800 font-yatra">अब घर बैठे बैठे</h2>
 							<h1 className="text-5xl lg:text-8xl font-black text-[#B22222] leading-[0.95] tracking-tighter">
