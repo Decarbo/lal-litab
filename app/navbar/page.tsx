@@ -4,8 +4,10 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ShoppingCart, User } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useCart } from '@/context/CartContext';
 
 const Navbar = () => {
+    const { cart } = useCart();
 	const [isOpen, setIsOpen] = useState(false);
 	const [scrolled, setScrolled] = useState(false);
 
@@ -58,7 +60,11 @@ const Navbar = () => {
 						<Link href="/cart">
 							<button className="text-gray-600 hover:text-[#B22222] relative transition-colors">
 								<ShoppingCart size={22} />
-								<span className="absolute -top-2 -right-2 bg-[#B22222] text-white text-[10px] rounded-full w-4 h-4 flex items-center justify-center">0</span>
+								{cart.length > 0 && (
+									<span className="absolute -top-2 -right-2 bg-[#B22222] text-white text-[10px] rounded-full w-4 h-4 flex items-center justify-center">
+										{cart.length}
+									</span>
+								)}
 							</button>
 						</Link>
 						<Link href="/auth/login">

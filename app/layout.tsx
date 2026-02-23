@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import Navbar from './navbar/page';
 import { Yatra_One } from 'next/font/google';
+import { CartProvider } from '@/context/CartContext'; // Import CartProvider
 
 const yatraOne = Yatra_One({
 	subsets: ['latin'],
@@ -20,8 +21,10 @@ export default function RootLayout({
 			lang="en"
 			className={`${yatraOne.variable} `}>
 			<body>
-				<Navbar />
-				{children}
+                <CartProvider>
+				    <Navbar />
+				    {children}
+                </CartProvider>
 			</body>
 		</html>
 	);
