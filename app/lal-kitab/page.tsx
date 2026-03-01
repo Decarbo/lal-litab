@@ -3,7 +3,7 @@
 
 
 import React, { useEffect, useState, useRef } from 'react';
-import { Book, Compass, FileText, CheckCircle2, Award, PlayCircle, Star, MessageSquareQuote, ArrowRight, Sun, Sparkles, ShieldOff, ShoppingBasket, Heart, BookOpen, Clock, Banknote, Layout, Zap, ArrowRightToLine } from 'lucide-react';
+import { Book, Compass, FileText, CheckCircle2, Award, PlayCircle, Play, Youtube, Star, MessageSquareQuote, ArrowRight, Sun, Sparkles, ShieldOff, ShoppingBasket, Heart, BookOpen, Clock, Banknote, Layout, Zap, ArrowRightToLine } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { useRouter } from 'next/navigation';
 
@@ -74,18 +74,21 @@ const LalKitabPage = () => {
 			title: 'Understanding 12 Houses in Lal Kitab',
 			duration: '22:10',
 			tag: 'Astrology',
+            url: 'https://youtube.com/',
 			image: 'https://images.unsplash.com/photo-1533227260871-bf4436841284?auto=format&fit=crop&q=80',
 		},
 		{
 			title: 'Planetary Positions & Deep Remedies',
 			duration: '15:24',
 			tag: 'Remedies',
+            url: 'https://youtube.com/',
 			image: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&q=80',
 		},
 		{
 			title: 'Quick Fixes for Pitra Dosha at Home',
 			duration: '08:45',
 			tag: 'Karma',
+            url: 'https://youtube.com/',
 			image: 'https://images.unsplash.com/photo-1502484390501-5d070b8f4ed4?auto=format&fit=crop&q=80',
 		},
 	];
@@ -252,58 +255,83 @@ const LalKitabPage = () => {
 								free video lessons directly from Jyotish Guru Kunwar Ji.
 							</p>
 						</div>
-						<button className="hidden md:flex flex-shrink-0 px-8 py-4 bg-gray-900 text-white rounded-2xl font-bold shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:bg-gray-800 hover:shadow-[0_15px_35px_rgba(0,0,0,0.2)] hover:-translate-y-1 transition-all items-center gap-2">
-							View Channel <ArrowRight size={18} />
-						</button>
+						<a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" className="hidden md:flex flex-shrink-0 px-8 py-4 bg-gray-900 text-white rounded-2xl font-bold shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:bg-[#B22222] hover:shadow-[0_15px_35px_rgba(178,34,34,0.3)] hover:-translate-y-1 transition-all items-center gap-2 group">
+							<Youtube size={20} className="text-red-500 group-hover:text-white transition-colors" /> View Channel <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+						</a>
 					</div>
 
 					{/* Video Grid */}
 					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 						{videos.map((video, idx) => (
-							<div
+							<a
+                                href={video.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
 								key={idx}
-								className="group relative rounded-[2.5rem] bg-gray-50 flex flex-col overflow-hidden border border-gray-100 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:border-gray-200 hover:-translate-y-2 transition-all duration-500 cursor-pointer">
+								className="group/card relative rounded-[2rem] bg-white flex flex-col overflow-hidden border border-gray-100/60 hover:shadow-[0_40px_80px_-20px_rgba(178,34,34,0.2)] hover:border-[#B22222]/30 hover:-translate-y-2 transition-all duration-500 cursor-pointer">
 								{/* Video Thumbnail */}
-								<div className="aspect-[16/10] w-full relative overflow-hidden bg-gray-200">
+								<div className="aspect-video w-full relative overflow-hidden bg-gray-900">
 									<img
 										src={video.image}
 										alt={video.title}
-										className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+										className="w-full h-full object-cover opacity-90 group-hover/card:opacity-100 group-hover/card:scale-105 transition-all duration-700 ease-out"
 									/>
-									{/* Play Overlay */}
-									<div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500 flex items-center justify-center">
-										<div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/30 shadow-2xl group-hover:scale-110 group-hover:bg-[#B22222] transition-all duration-300">
-											<PlayCircle
-												size={28}
+									
+                                    {/* Gradient Overlay for better contrast */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover/card:opacity-60 transition-opacity duration-500"></div>
+
+                                    {/* Play Button - Industry Standard */}
+									<div className="absolute inset-0 flex items-center justify-center">
+										<div className="w-16 h-16 md:w-20 md:h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/40 shadow-[0_0_30px_rgba(0,0,0,0.3)] group-hover/card:scale-110 group-hover/card:bg-[#ff0000] group-hover/card:border-[#ff0000] group-hover/card:shadow-[0_0_40px_rgba(255,0,0,0.4)] transition-all duration-500 overflow-hidden relative">
+											<Play
+												size={32}
 												fill="currentColor"
-												stroke="currentColor"
-												className="ml-1"
+												strokeWidth={0}
+												className="ml-1.5 relative z-10 transition-transform duration-300 group-hover/card:scale-110"
 											/>
+                                            {/* Ripple effect on hover */}
+                                            <div className="absolute inset-0 bg-white opacity-0 group-hover/card:animate-ping rounded-full" style={{ animationDuration: '2s' }}></div>
 										</div>
 									</div>
+
+                                    {/* YouTube Icon Badge */}
+                                    <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md rounded-full px-3 py-1.5 flex items-center gap-2 border border-white/10 opacity-0 -translate-y-4 group-hover/card:opacity-100 group-hover/card:translate-y-0 transition-all duration-500 delay-100">
+                                        <Youtube size={16} className="text-[#ff0000]" fill="currentColor" />
+                                        <span className="text-white text-xs font-bold tracking-wider">WATCH NOW</span>
+                                    </div>
+
 									{/* Duration Badge */}
-									<div className="absolute bottom-4 right-4 bg-black/80 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-lg">
+									<div className="absolute bottom-4 right-4 bg-black/90 backdrop-blur-md text-white text-xs font-bold px-2.5 py-1 rounded border border-white/10 shadow-lg relative overflow-hidden group-hover/card:border-red-500/50 transition-colors">
 										{video.duration}
 									</div>
 								</div>
 
 								{/* Video Info */}
-								<div className="p-6 lg:p-8 flex flex-col gap-4">
-									<span className="self-start text-[10px] font-black uppercase tracking-widest text-[#B22222] bg-red-50 px-3 py-1 rounded-full">
-										{video.tag}
-									</span>
-									<h3 className="text-xl font-bold text-gray-900 leading-snug group-hover:text-[#B22222] transition-colors">
+								<div className="p-6 md:p-8 flex flex-col gap-4 relative">
+                                    {/* Decorative line */}
+                                    <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+
+									<div className="flex items-center justify-between">
+                                        <span className="text-[10px] font-black uppercase tracking-widest text-[#B22222] bg-red-50 px-3 py-1 rounded-full border border-red-100">
+                                            {video.tag}
+                                        </span>
+                                        <span className="text-xs font-bold text-gray-400 group-hover/card:text-[#B22222] transition-colors flex items-center gap-1">
+                                            YouTube <ArrowRight size={12} className="-rotate-45" />
+                                        </span>
+                                    </div>
+									
+                                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 leading-snug group-hover/card:text-[#B22222] transition-colors line-clamp-2">
 										{video.title}
 									</h3>
 								</div>
-							</div>
+							</a>
 						))}
 					</div>
 
 					{/* Mobile Button */}
-					<button className="md:hidden mt-10 w-full flex px-8 py-4 bg-gray-900 text-white rounded-2xl font-bold shadow-xl hover:bg-gray-800 active:scale-95 transition-all justify-center items-center gap-2">
-						View Channel <ArrowRight size={18} />
-					</button>
+					<a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" className="md:hidden mt-10 w-full flex px-8 py-4 bg-[#B22222] text-white rounded-2xl font-bold shadow-[0_10px_30px_rgba(178,34,34,0.3)] hover:bg-red-700 active:scale-95 transition-all justify-center items-center gap-2">
+						<Youtube size={20} className="text-white" /> Subscribe to Channel
+					</a>
 				</div>
 			</section>
 		</div>
