@@ -4,6 +4,8 @@ import './globals.css';
 import Navbar from './navbar/page';
 import { Yatra_One } from 'next/font/google';
 import { CartProvider } from '@/context/CartContext'; // Import CartProvider
+import WhatsAppButton from './whatsapp/whatsapp';
+import Footer from './footer/page';
 
 const yatraOne = Yatra_One({
 	subsets: ['latin'],
@@ -21,10 +23,12 @@ export default function RootLayout({
 			lang="en"
 			className={`${yatraOne.variable} `}>
 			<body>
-                <CartProvider>
-				    <Navbar />
-				    {children}
-                </CartProvider>
+				<CartProvider>
+					<Navbar />
+					{children}
+					<WhatsAppButton />
+					<Footer />
+				</CartProvider>
 			</body>
 		</html>
 	);
