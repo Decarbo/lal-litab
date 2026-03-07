@@ -46,7 +46,7 @@ const Navbar = () => {
 						className="group flex-shrink-0 flex items-center gap-2 relative z-50">
 						<div className="relative overflow-hidden rounded-lg">
 							<Image
-								src="/logolap.svg"
+								src="/logo.png"
 								alt="Lal Kitab with Guru Kunwar Ji"
 								width={160}
 								height={45}

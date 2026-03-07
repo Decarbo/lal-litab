@@ -125,27 +125,17 @@ const Hero = () => {
 			<div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8 pt-10 lg:pt-20 pb-16">
 				<div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
 					{/* LEFT COLUMN: BRAND & VIDEO */}
-					<div className="lg:col-span-7 space-y-6 lg:space-y-8 lg:sticky lg:top-24">
+					<div className="lg:col-span-7  lg:sticky lg:top-24">
 						{/* Brand Logo */}
-						<div className="group relative w-full h-80 overflow-hidden ">
-							{/* Background Image (Top aligned) */}
-							<Image
-								src="/bg-removed-result.png"
-								alt="Background"
-								fill
-								className="object-contain object-top transition-all duration-700"
-								priority
-							/>
-							<div className="absolute bottom-0 left-0 right-0 h-16 z-10 bg-gradient-to-t from-white via-white/60 to-transparent dark:from-black dark:via-black/60" />
-						</div>
+
 						{/* Bottom Logo */}
-						<div className=" w-full bg-white">
+						<div className=" w-full  ">
 							<Image
-								src="/logolap.svg"
+								src="/rr.svg"
 								alt="Logo"
-								width={160}
-								height={80}
-								className="w-full object-contain"
+								width={100}
+								height={60}
+								className="w-full object-contain "
 								priority
 							/>
 						</div>
@@ -153,16 +143,8 @@ const Hero = () => {
 
 					{/* RIGHT COLUMN: LEAD FORM */}
 					<div className="lg:col-span-5  lg:space-y-8 lg:mt-16 animate-[blurReveal_1s_ease-out_0.3s_both]">
-						{/* Red Action Card */}
-						{/* RIGHT COLUMN: DEMO DIV (Booking Form) */}
 						<div className="lg:col-span-5 relative mt-8 lg:mt-0">
-							{/* Ambient decorative glow behind form */}
-							<div className="absolute inset-x-0 -top-10 bottom-10 bg-gradient-to-b from-orange-400/20 to-red-500/10 blur-3xl rounded-[4rem] transform scale-95" />
-
 							<div className="bg-gradient-to-br from-[#B22222] via-[#a01e1e] to-[#8B0000] p-8 lg:p-12 rounded-[2.5rem] shadow-[0_20px_60px_rgba(178,34,34,0.3)] relative overflow-hidden group border border-red-500/30">
-								{/* Shimmer/Flare effect inside form container */}
-								<div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl transform -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-
 								{!isSubmitted ? (
 									<>
 										<div className="mb-8 text-center sm:text-left relative z-10">
@@ -223,7 +205,7 @@ const Hero = () => {
 					</div>
 				</div>
 				{/* --- Quick Stats --- */}
-				<div className="hidden md:grid grid-cols-2 gap-8  w-full my-8 mx-auto border-y border-red-300 py-3 bg-white/40 backdrop-blur-sm ">
+				<div className="hidden md:grid grid-cols-2 gap-8 mt-6  w-full my-8 mx-auto border-y border-red-300 py-3 bg-white/40 backdrop-blur-sm ">
 					<StatItem
 						label="Total Students"
 						value={32670}
@@ -237,7 +219,7 @@ const Hero = () => {
 					/>
 				</div>
 				{/* VSL Video Container */}
-				<div className="relative group rounded-3xl lg:rounded-[2.5rem] overflow-hidden shadow-2xl border-[6px] lg:border-[12px] border-white bg-black aspect-video w-full animate-[blurReveal_1.2s_ease-out_0.4s_both]">
+				<div className="relative group rounded-3xl mt-6 lg:rounded-[2.5rem] overflow-hidden shadow-2xl border-[6px] lg:border-[12px] border-white bg-black aspect-video w-full animate-[blurReveal_1.2s_ease-out_0.4s_both]">
 					<iframe
 						className="w-full h-full"
 						src="https://www.youtube.com/embed/eqIvwa8I-28?si=N-A-K309XJtIeP_w&autoplay=0"
