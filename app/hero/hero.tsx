@@ -220,12 +220,14 @@ const Hero = () => {
 				</div>
 				{/* VSL Video Container */}
 				<div className="relative group rounded-3xl mt-6 lg:rounded-[2.5rem] overflow-hidden shadow-2xl border-[6px] lg:border-[12px] border-white bg-black aspect-video w-full animate-[blurReveal_1.2s_ease-out_0.4s_both]">
-					<iframe
-						className="w-full h-full"
-						src="https://www.youtube.com/embed/eqIvwa8I-28?si=N-A-K309XJtIeP_w&autoplay=0"
-						title="Lal Kitab Demo"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowFullScreen
+					 <video
+                    className="w-full h-full object-cover"
+                    src="/video.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    controls
+                    playsInline
 					/>
 				</div>
 			</div>
