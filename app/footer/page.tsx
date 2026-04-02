@@ -15,13 +15,13 @@ const Footer = () => {
 					{/* Brand & About */}
 					<div className="space-y-6">
 						<div className=" flex items-center gap-3  max-w-4xl ">
-							<Image
+							<img
 								src="/logo.png"
 								alt="Lal Kitab with Guru Kunwar Ji"
 								width={160}
 								height={45}
 								className="w-auto h-20 object-contain transition-transform duration-500 group-hover:scale-105"
-								priority
+								
 							/>
 						</div>
 

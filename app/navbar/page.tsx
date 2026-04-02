@@ -45,13 +45,13 @@ const Navbar = () => {
 						href="/"
 						className="group flex-shrink-0 flex items-center gap-2 relative z-50">
 						<div className="relative overflow-hidden rounded-lg">
-							<Image
-								src="/logo.png"
+							<img
+								src="/image copy.png"
 								alt="Lal Kitab with Guru Kunwar Ji"
 								width={160}
 								height={45}
 								className="w-auto h-10 md:h-12 object-contain transition-transform duration-500 group-hover:scale-105"
-								priority
+								
 							/>
 							{/* subtle shine effect on hover */}
 							<div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:animate-[shimmer_1.5s_infinite] skew-x-12 pointer-events-none"></div>

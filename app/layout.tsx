@@ -24,7 +24,7 @@ export default function RootLayout({
 			className={`${yatraOne.variable} `}>
 			<body>
 				<CartProvider>
-					<Navbar />
+					<Navbar/>
 					{children}
 					<WhatsAppButton />
 					<Footer />
